@@ -32,13 +32,12 @@ describe('Query #2', () => {
     if (!rows) {
       expect.fail('No records returned from query');
     }
-    const data = rows.map(row => Object.values(row));
     const expectedData = [
       [ 'Pipe Wrench', 18.99 ],
       [ 'Rake', 15.45 ],
       [ 'Snow shovel', 16.5 ],
     ];
-    expect(data).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
+    expect(rows).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
   });
 
   context('can be adapted to use with other prices by replacing 14.67 and 20.09 in the query\n      Important Note: The following test specs automatically pass\n      if you implemented the original query as intended', () => {

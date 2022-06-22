@@ -32,13 +32,12 @@ describe('Query #1', () => {
     if (!rows) {
       expect.fail('No records returned from query');
     }
-    const data = rows.map(row => Object.values(row));
     const expectedData = [
       [ 'Pipe Cutter', 36.36, 1 ],
       [ 'Pipe Cutter', 36.36, 2 ],
       [ 'Pipe Wrench', 18.99, 1 ]
     ];
-    expect(data).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
+    expect(rows).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
   });
 
   context('can be adapted to use with another name by replacing < Pipe > in the query\n      Important Note: The following test specs automatically pass\n      if you implemented the original query as intended', () => {

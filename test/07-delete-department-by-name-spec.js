@@ -35,13 +35,12 @@ describe('Delete data', () => {
       if (!rows) {
         expect.fail('No records returned from query');
       }
-      const data = rows.map(row => Object.values(row));
       const expectedData = [
         [ 'Electrical' ],
         [ 'Home & Garden' ],
         [ 'Plumbing' ],
       ];
-      expect(data).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
+      expect(rows).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
     });
   });
 
@@ -54,7 +53,6 @@ describe('Delete data', () => {
       if (!rows) {
         expect.fail('No records returned from query');
       }
-      const data = rows.map(row => Object.values(row));
       const expectedData = [
         [ 'Pipe Cutter' ],
         [ 'Pipe Wrench' ],
@@ -63,7 +61,7 @@ describe('Delete data', () => {
         [ 'Wheelbarrow' ],
         [ 'Work light' ]
       ];
-      expect(data).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
+      expect(rows).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
     });
   });
 
@@ -94,7 +92,7 @@ describe('Delete data', () => {
           [ 'Electrical' ],
           [ 'Home & Garden' ],
         ];
-        expect(data).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
+        expect(rows).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
       });
 
       it('when finding all tools, all tools in the deleted department are still listed, but are no longer associated with the deleted department', async () => {
@@ -114,7 +112,7 @@ describe('Delete data', () => {
           [ 'Wheelbarrow' ],
           [ 'Work light' ]
         ];
-        expect(data).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
+        expect(rows).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
       });
     })
   });
@@ -153,7 +151,7 @@ describe('Delete data', () => {
           [ 'Electrical' ],
           [ 'Plumbing' ],
         ];
-        expect(data).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
+        expect(rows).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
       });
 
       it('when finding all tools, all tools that were in the deleted department are still listed', async () => {
@@ -173,7 +171,7 @@ describe('Delete data', () => {
           [ 'Wheelbarrow' ],
           [ 'Work light' ]
         ];
-        expect(data).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
+        expect(rows).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
       });
     })
   });

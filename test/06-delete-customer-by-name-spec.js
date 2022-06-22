@@ -35,12 +35,11 @@ describe('Delete data', () => {
       if (!rows) {
         expect.fail('No records returned from query');
       }
-      const data = rows.map(row => Object.values(row));
       const expectedData = [
         [ 'Jane', 'Doe' ],
         [ 'John', 'Smith' ],
       ];
-      expect(data).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
+      expect(rows).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
     });
   });
 
@@ -53,7 +52,6 @@ describe('Delete data', () => {
       if (!rows) {
         expect.fail('No records returned from query');
       }
-      const data = rows.map(row => Object.values(row));
       const expectedData = [
         [ 'Pipe Cutter', 1 ],
         [ 'Pipe Cutter', 2 ],
@@ -63,7 +61,7 @@ describe('Delete data', () => {
         [ 'Work light', 1 ],
         [ 'Work light', 1 ]
       ];
-      expect(data).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
+      expect(rows).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
     });
   });
 
@@ -93,7 +91,7 @@ describe('Delete data', () => {
         const expectedData = [
           [ 'Jane', 'Doe' ]
         ];
-        expect(data).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
+        expect(rows).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
       });
 
       it('when finding all tool purchases, all purchases by the customer are deleted', async () => {
@@ -111,7 +109,7 @@ describe('Delete data', () => {
           [ 'Snow shovel', 3 ],
           [ 'Work light', 1 ],
         ];
-        expect(data).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
+        expect(rows).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
       });
     })
   });
@@ -152,7 +150,7 @@ describe('Delete data', () => {
         const expectedData = [
           [ 'John', 'Smith' ]
         ];
-        expect(data).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
+        expect(rows).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
       });
 
       it('when finding all tool purchases, all purchases by the customer are deleted', async () => {
@@ -169,7 +167,7 @@ describe('Delete data', () => {
           [ 'Wheelbarrow', 3 ],
           [ 'Work light', 1 ],
         ];
-        expect(data).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
+        expect(rows).to.eql(expectedData, `There was an error running the query:\n\n${query}\n\n`);
       });
     })
   });

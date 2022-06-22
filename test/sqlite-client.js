@@ -1,32 +1,28 @@
-const sqlite = require('sqlite3').verbose();
+const Database = require('better-sqlite3');
 
 module.exports.createClient = () => {
-  return new Promise((resolve, reject) => {
-    const db = new sqlite.Database(':memory:', (err) => {
-      if (err) {
-        console.error(err.message);
-        reject(err);
-      }
-      resolve(db);
-    });
-    return db;
-  })
+  const db = new Database(':memory:');
+  return db;
 };
 
 module.exports.queryRows = (client, query, params = []) => {
-  return new Promise((resolve, reject) => {
-    client.all(query, params, function(err, rows) {
-      if (err) return reject(err);
-      else return resolve(rows);
-    });
-  });
+  query = query.replace(/.*--.*/g, "\n");
+  if (!query) throw new Error("No SQL statement in file.");
+  try {
+    const stmt = client.prepare(query);
+    const rows = stmt.raw().iterate();
+    const data = [];
+    for (const row of rows) {
+      data.push(row);
+    }
+    return data;
+  } catch (err) {
+    console.log(query);
+  }
 };
 
 module.exports.run = (client, statement) => {
-  return new Promise((resolve, reject) => {
-    client.exec(statement, function(err) {
-      if (err) return reject(err);
-      else return resolve();
-    });
-  });
+  statement = statement.replace(/\*.--.*\n/g, "\n");
+  if (!statement) throw new Error("No SQL statement in file.");
+  return client.exec(statement);
 };

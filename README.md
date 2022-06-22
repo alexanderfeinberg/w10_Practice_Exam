@@ -470,10 +470,13 @@ npm test test/07-delete-department-by-name-spec.js
 
 When you are ready to submit:
 
-1. Delete the `node_modules` directory
-2. Delete any database files that you created using `sqlite3`
-3. Rename your folder to begin with your `firstName_lastName`
-4. Zip up your folder
-5. Upload it
+1. Re-run all unit tests and fix any syntax errors that are crashing the tests. If
+the unit tests crash, or do not run, you will receive a zero for the coding
+portion of the assessment
+2. Delete the `node_modules` directory
+3. Delete any database files that you created using `sqlite3`
+4. Rename your folder to begin with your `firstName_lastName`
+5. Zip up your folder
+6. Upload it
 
 [starter]: https://github.com/appacademy/assessment-for-week-10-v2-practice-sql
