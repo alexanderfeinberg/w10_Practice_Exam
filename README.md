@@ -201,7 +201,7 @@ and price for all tools in the price range of $14.67 to $20.09:
 
 The second test spec will replace the `14.67` and `20.09` in the file to adapt
 the SQL query that you wrote to be adapted to any price range. It will replace
-the original prices with `60` and `80` respectively. The second test spec
+the original prices with `60` and `100` respectively. The second test spec
 expects the SQL query to output the following tools' name and price for all
 tools in the price range of $14.67 to $20.09:
 

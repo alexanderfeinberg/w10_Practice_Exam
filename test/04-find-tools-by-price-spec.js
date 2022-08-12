@@ -41,7 +41,7 @@ describe('Query #2', () => {
   });
 
   context('can be adapted to use with other prices by replacing 14.67 and 20.09 in the query\n      Important Note: The following test specs automatically pass\n      if you implemented the original query as intended', () => {
-    it('returns tool name and price for tools that have prices between $60 and $80 ordered by tool name', async () => {
+    it('returns tool name and price for tools that have prices between $60 and $100 ordered by tool name', async () => {
       const price1 = 60;      
       const price2 = 100;      
 
